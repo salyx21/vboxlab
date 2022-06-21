@@ -8,11 +8,10 @@
       state: present
     become: true
     vars:
-      packages: Setting up dev environment
+      packages:
         - git
         - python3-pip
         - docker
-        - docker compose
   - name: "Starting Docker"
     become: true
     service: 
