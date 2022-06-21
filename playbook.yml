@@ -1,5 +1,6 @@
 ---
-- hosts: local
+- hosts: localhost
+  connection: local
   tasks: 
   - name: "Install required software"
     apt:
