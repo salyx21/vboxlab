@@ -1,0 +1,26 @@
+---
+- hosts: local
+  tasks: 
+  - name: "Install required software"
+    apt:
+      name: "{{ packages }}"
+      state: present
+    become: true
+    vars:
+      packages: Setting up dev environment
+        - git
+        - python3-pip
+        - docker
+        - docker compose
+  - name: "Starting Docker"
+    become: true
+    service: 
+      name: docker
+      state: started
+      enabled: yes
+  - name: "Pull git repo"
+    git:
+      repo: https://github.com/salyx21/RevNotes.git
+      dest: /tmp
+      version: master
+...
